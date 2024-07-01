@@ -14,5 +14,11 @@
 
 .container__ticker--desktop {
   background-color: #005EB8;
+  height: 100vh;
+}
+
+
+.container__content--container {
+  width: 100vw;
 }
 </style>

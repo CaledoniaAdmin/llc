@@ -14,5 +14,6 @@
 
 .container__capability--desktop {
   background-color:  #FC4C02;
+  height: 100vh;
 }
 </style>

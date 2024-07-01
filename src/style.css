@@ -17,6 +17,12 @@
   background: white;
 }
 
+.container__content--container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
