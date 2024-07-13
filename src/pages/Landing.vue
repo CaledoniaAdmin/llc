@@ -122,6 +122,8 @@ onMounted(() => {
       <div class="slide">
         <div class="container__service"> <!-- Tiles of the tech I know -->
           <button id="contact" @click="console.log('the service section')">Service Offering Section</button>
+          <!-- BUILD ROW -->
+          <!-- BUILD CELL -->
         </div>
       </div>
     </div>
