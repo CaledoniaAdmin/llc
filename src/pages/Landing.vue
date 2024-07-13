@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import {onMounted} from "vue";
 const redirectCall = () => {
   return window.location.href = `http://localhost:5137/contact`
 }
@@ -60,6 +61,28 @@ const capItems = [
   }
 ]
 
+onMounted(() => {
+  const options = {
+    threshold: .50
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log('entry isIntersecting: ', entry)
+        entry.target.classList.add('show')
+        return
+      } else {
+        entry.target.classList.remove('show')
+        return
+      }
+    })
+  }, options)
+
+  const pageElementArr = Array.from(document.querySelectorAll('.slide'))
+
+  pageElementArr.forEach((el: any) => observer.observe(el))
+})
 
 </script>
 
@@ -91,7 +114,7 @@ const capItems = [
           <div v-for="(item, index) in capItems" class="cap-single">
             <div class="cap-title">{{item.title}}</div>
             <div :id="item.section" v-for="content in item.content">
-              <div>{{content}}</div>
+              <div class="cap-content">{{content}}</div>
             </div>
           </div>
         </div>
@@ -155,6 +178,38 @@ const capItems = [
       font-weight: 700;
       font-size: 40px;
       color: #008E97;
+    }
+  }
+}
+
+.slide {
+  .cap-single {
+    opacity: 0;
+    transition: all 1s;
+  }
+
+  &.show {
+    .container__capability {
+      .cap-single:nth-child(1) {
+        opacity: 1;
+        transition: all 1.75s;
+      }
+      .cap-single:nth-child(2) {
+        opacity: 1;
+        transition: all 2.5s;
+      }
+      .cap-single:nth-child(3) {
+        opacity: 1;
+        transition: all 3.25s;
+      }
+      .cap-single:nth-child(4) {
+        opacity: 1;
+        transition: all 4.5s;
+      }
+      .cap-single:nth-child(5) {
+        opacity: 1;
+        transition: all 5s;
+      }
     }
   }
 }
