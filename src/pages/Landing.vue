@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { useWindowSize } from '@vueuse/core'
+
 
 import {onMounted} from "vue";
+
+const { height, width } = useWindowSize()
 const redirectCall = () => {
   return window.location.href = `http://localhost:5137/contact`
 }
@@ -11,8 +15,9 @@ const capItems = [
     title: 'Core Competencies',
     section: 'competency',
     content: [
-        'Caledonia Consulting, LLC. (CC) provides strategic consulting technology services and managed services to commercial, not for profit and government organizations. Our Consulting can mobilize the right people, skills and tech- nologies to help organizations improve their performance.',
-        'As a Minority Owned Small Business with HUBZone certification, CC is committed to excellence and creating innovative and flexible solutions for our State and Federal clients.'
+      'As a Minority Owned Small Business with HUBZone certification, Caledonia Consulting is committed to excellence and creating innovative and flexible solutions for our State and Federal clients.',
+      'Caledonia Consulting provides strategic consulting technology services and managed services to commercial, not for profit and government organizations. ',
+      'Our Consulting can mobilize the right people, skills and technologies to help organizations improve their performance.'
     ]
   },
   {
@@ -43,7 +48,8 @@ const capItems = [
     title: 'Company Data',
     section: 'data',
     content: [
-        'Caledonia Consulting (CC) provides consultation ser- vices to the government, small- and medium-sized companies. Our services include technical operations management, technical solution consulting, digital and internet-based consulting to improve the techno- logical footprint of our clients.'
+        'Caledonia Consulting (CC) provides consultation services to the government, small and medium-sized companies. ',
+        'Our services include technical operations management, technical solution consulting, digital and internet-based consulting to improve the technological footprint of our clients.'
     ]
   },
   {
@@ -55,8 +61,7 @@ const capItems = [
         'CAGE: 9PHT2',
         'NAICS: 513210, 541511, 541512, 518210, 519290, 561410',
         'Socio-economic certifications: HUBZone, MBE',
-        'Accept Credit and Purchase Cards',
-        'PMI – CAPM Since ‘18'
+        'PMI: CAPM (2018-present)'
     ]
   }
 ]
@@ -87,10 +92,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container__landing--desktop">
+  <div v-if="width > 700" class="container__landing--desktop">
     <div class="container__content--container">
-      <span>Landing</span>
-
       <div class="slide">
         <div class="left">
           <img src="/nasa-Q1p7bh3SHj8-unsplash.jpg" class="landing-image"/>
@@ -113,21 +116,15 @@ onMounted(() => {
         <div class="container__capability">
           <div v-for="(item, index) in capItems" class="cap-single">
             <div class="cap-title">{{item.title}}</div>
-            <div :id="item.section" v-for="content in item.content">
-              <div class="cap-content">{{content}}</div>
+            <div :id="item.section" :class="item.section" v-for="content in item.content">
+              <div class="cap-content"><span v-if="item.section === 'why' || item.section === 'certs' || item.section === 'performance' ">&#x2022</span>{{content}}</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="slide">
-        <div class="container__service"> <!-- Tiles of the tech I know -->
-          <button id="contact" @click="console.log('the service section')">Service Offering Section</button>
-          <!-- BUILD ROW -->
-          <!-- BUILD CELL -->
-        </div>
-      </div>
     </div>
   </div>
+  <div v-else>Mobile</div>
 </template>
 
 <style scoped>
@@ -188,10 +185,26 @@ onMounted(() => {
   .cap-single {
     opacity: 0;
     transition: all 1s;
+
+    .competency {
+      padding-left: 5px;
+    }
+  }
+
+  .container__capability {
+    background-color: #121212;
   }
 
   &.show {
     .container__capability {
+      display: flex;
+      flex-direction: column;
+      color: white;
+
+      .cap-title {
+        text-decoration: underline;
+      }
+
       .cap-single:nth-child(1) {
         opacity: 1;
         transition: all 1.75s;
@@ -218,9 +231,11 @@ onMounted(() => {
 
 .cap-single {
   height: 20vh;
+  font-size: 18px;
 }
 
 .cap-title {
   font-weight: 700;
+  color: #008E97;
 }
 </style>

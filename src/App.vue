@@ -27,7 +27,6 @@ const setPage = (e: Event) => {
         <div :class="`${width > 600 ? 'container__nav-items--desktop' : 'container__nav-items--mobile'}`">
           <div id="capability" class="nav-item" @click="setPage">CAPABILITIES</div>
           <div id="contact" class="nav-item" @click="setPage">CONTACT</div>
-          <div id="ticker" class="nav-item" @click="setPage">TICKER</div>
         </div>
       </div>
     </div>
@@ -63,7 +62,8 @@ const setPage = (e: Event) => {
   font-family: "Fira Sans", sans-serif;
   font-weight: 500;
   font-style: normal;
-  background: black;
+  background: white;
+  color: black;
 
 
   > * {
@@ -74,7 +74,7 @@ const setPage = (e: Event) => {
 }
 
 .container__navbar--desktop {
-  position: absolute;
+  position: sticky;
 
 
   .container__nav-items {
