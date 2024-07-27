@@ -11,17 +11,7 @@ const redirectCall = () => {
 
 const capItems = [
   {
-    id: 1,
-    title: 'Core Competencies',
-    section: 'competency',
-    content: [
-      'As a Minority Owned Small Business with HUBZone certification, Caledonia Consulting is committed to excellence and creating innovative and flexible solutions for our State and Federal clients.',
-      'Caledonia Consulting provides strategic consulting technology services and managed services to commercial, not for profit and government organizations. ',
-      'Our Consulting can mobilize the right people, skills and technologies to help organizations improve their performance.'
-    ]
-  },
-  {
-    id: 2,
+    id: 0,
     title: 'Why Choose Caledonia Consulting?',
     section: 'why',
     content: [
@@ -34,7 +24,7 @@ const capItems = [
     ]
   },
   {
-    id: 3,
+    id: 1,
     title: 'Past Performance',
     section: 'performance',
     content: [
@@ -42,26 +32,20 @@ const capItems = [
         'DOD — 1 year as a contractor',
         '10 years of consulting on Back End & Front End Application Builds for private'
     ]
-  },
+  }
+]
+
+const codesAndCerts = [
   {
-    id: 4,
-    title: 'Company Data',
-    section: 'data',
-    content: [
-        'Caledonia Consulting (CC) provides consultation services to the government, small and medium-sized companies. ',
-        'Our services include technical operations management, technical solution consulting, digital and internet-based consulting to improve the technological footprint of our clients.'
-    ]
-  },
-  {
-    id: 5,
+    id: 0,
     title: 'Codes & Certs',
     section: 'certs',
     content: [
-        'DUNS: 118981529',
-        'CAGE: 9PHT2',
-        'NAICS: 513210, 541511, 541512, 518210, 519290, 561410',
-        'Socio-economic certifications: HUBZone, MBE',
-        'PMI: CAPM (2018-present)'
+      'DUNS: 118981529',
+      'CAGE: 9PHT2',
+      'NAICS: 513210, 541511, 541512, 518210, 519290, 561410',
+      'Socio-economic certifications: HUBZone, MBE',
+      'PMI: CAPM (2018-present)'
     ]
   }
 ]
@@ -94,31 +78,66 @@ onMounted(() => {
 <template>
   <div v-if="width > 700" class="container__landing--desktop">
     <div class="container__content--container">
-      <div class="slide">
-        <div class="left">
-          <img src="/nasa-Q1p7bh3SHj8-unsplash.jpg" class="landing-image"/>
-          <div class="container__testimonials">
-            <p class="testimonial">"Caledonia Consulting did an outstanding job for me on website design and development. Everything was customized to my requirements, and the resulting site is appealing, highly intuitive, and user-friendly. I would recommend Caledonia to anyone seeking expert guidance in setting up their business website."  07/06/2024
-            </p>
+      <div class="slide one">
+        <div class="top">
+          <div class="left">
+            <img src="https://cdn-s3.touchofmodern.com/products/000/515/683/595ab994e1d64a66c15662041fcf685e_large.jpg" class="landing-image"/>
           </div>
-        </div>
-        <div class="right">
-          <div class="container__content--text">
-            <div class="company-title">CALEDONIA CONSULTING LLC</div>
-            <div class="container__cta--desktop">
-              <a href="#contact">Contact Us</a>
+          <div class="right">
+            <div class="container__content--text">
+              <div class="company-title">
+                <span class="primary">CALEDONIA</span>
+                <span class="underline"></span>
+                <span class="secondary">CONSULTING LLC</span>
+              </div>
+              <div class="container__cta--desktop">
+                <span>Contact Us Icon</span>
+              </div>
             </div>
           </div>
         </div>
-
+        <div  class="bottom">
+          <div class="cap-title">Company Data</div>
+          <div class="cap-content">As a Minority-Owned Small Business with HUBZone certification, Caledonia Consulting is committed to excellence when creating innovative and flexible solutions for our state, federal, and commercial clients.</div>
+          <div class="cap-content">Our services include technical operations management, technical solutions consulting, and digital and internet-based consulting to improve the technological footprint of our clients.</div>
+          <img class="arrowdown" src="/arrowdown.svg">
+        </div>
       </div>
-      <div class="slide">
+      <div class="slide two">
         <div class="container__capability">
-          <div v-for="(item, index) in capItems" class="cap-single">
+          <div v-for="(item) in capItems" class="cap-single">
             <div class="cap-title">{{item.title}}</div>
             <div :id="item.section" :class="item.section" v-for="content in item.content">
               <div class="cap-content"><span v-if="item.section === 'why' || item.section === 'certs' || item.section === 'performance' ">&#x2022</span>{{content}}</div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide three">
+        <div class="container__testimonials">
+          <div class="header">Testimonials</div>
+          <p class="testimonial">"Caledonia Consulting did an outstanding job for me on website design and development. Everything was customized to my requirements, and the resulting site is appealing, highly intuitive, and user-friendly. I would recommend Caledonia to anyone seeking expert guidance in setting up their business website."</p>
+          <p class="testimonial"> - Dean Pinkert Trade & Human Rights Consulting</p>
+        </div>
+      </div>
+      <div class="slide four">
+        <div class="container__codes">
+          <div class="cap-single">
+            <div class="cap-title">{{codesAndCerts[0].title}}</div>
+            <div :id="codesAndCerts[0].section" :class="codesAndCerts[0].section" v-for="content in codesAndCerts[0].content">
+              <div class="cap-content"><span>&#x2022</span>{{content}}</div>
+            </div>
+          </div>
+          <div class="cap-single">
+            <form>
+              <label for="name">Name</label>
+              <input id="name" type="text"/>
+              <label for="email">Email</label>
+              <input id="email" type="email"/>
+              <label for="number">Phone</label>
+              <input id="number" type="text"/>
+              <button type="submit">Submit</button>
+            </form>
           </div>
         </div>
       </div>
@@ -144,26 +163,38 @@ onMounted(() => {
 
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+}
+
 .slide {
  height: 100vh;
   width: 100vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
+  &.two {
+    height: 30vh;
+  }
+
+  &.three {
+    height: 25vh;
+  }
+
+  &.four {
+    height: 40vh;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: row;
+  }
 
   .left {
     width: 50vw;
     position: relative;
-
-    .container__testimonials {
-      position: absolute;
-      bottom: 40%;
-      padding:  15px;
-      background-color: black;
-
-      .testimonial {
-        color: white;
-      }
-    }
+    height: 60vh;
   }
 
   .right {
@@ -171,12 +202,50 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
     display: flex;
+    height: 60vh;
+    background: #0065bd;
+
+    .container__cta--desktop {
+      display: none;
+    }
 
     .company-title {
       font-family: "Nunito Sans", sans-serif;
       font-weight: 700;
       font-size: 40px;
-      color: #008E97;
+      color: #FFF;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+
+      .primary {
+        font-size: 55px;
+      }
+
+      .underline {
+        height: 7px;
+        width: 100%;
+        background-color: white;
+        margin-bottom: 7px;
+      }
+
+      .secondary {
+        font-size: 30px;
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    margin: 25px auto 0;
+    text-align: center;
+
+    .arrowdown {
+      margin: 25px 0 0 0;
+      height: 60px;
+      opacity: .6;
     }
   }
 }
@@ -192,17 +261,24 @@ onMounted(() => {
   }
 
   .container__capability {
-    background-color: #121212;
+    color: #121212;
+    display: flex;
+
+    .slide {
+      flex-direction: column;
+    }
   }
 
   &.show {
     .container__capability {
-      display: flex;
-      flex-direction: column;
-      color: white;
+
+      /*
+        Line separating content after scroll
+      */
+
+      height: 50vh;
 
       .cap-title {
-        text-decoration: underline;
       }
 
       .cap-single:nth-child(1) {
@@ -227,15 +303,64 @@ onMounted(() => {
       }
     }
   }
+
+  .container__codes {
+    display: flex;
+    .cap-single {
+      opacity: 1;
+      transition: all 1.75s;
+    }
+  }
+}
+
+.slide:nth-child(1) {
+  display: flex;
+
+  .cap-content {
+    font-size: 20px;
+    line-height: 1.95rem;
+  }
+}
+
+.slide:nth-child(2) {
+  .cap-title {
+    padding-bottom: 10px;
+  }
+  .cap-single {
+    margin-left: 6%;
+  }
+}
+
+.slide:nth-child(3) {
+  background-color: #333e4880;
+  color: white;
+  font-size: 22px;
+
+  .container__testimonials {
+    .testimonial {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.slide:nth-child(4) {
+  background-color: #0065bd;
+  color: white;
 }
 
 .cap-single {
   height: 20vh;
   font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
 }
 
 .cap-title {
   font-weight: 700;
-  color: #008E97;
+  font-size: 25px;
+  color: #0065bd;
+  text-align: center;
 }
 </style>
