@@ -76,7 +76,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="width > 700" class="container__landing--desktop">
+  <div v-if="width > 900" class="container__landing--desktop">
     <div class="container__content--container">
       <div class="slide one">
         <div class="top">
@@ -108,14 +108,14 @@ onMounted(() => {
           <div v-for="(item) in capItems" class="cap-single">
             <div class="cap-title">{{item.title}}</div>
             <div :id="item.section" :class="item.section" v-for="content in item.content">
-              <div class="cap-content"><span v-if="item.section === 'why' || item.section === 'certs' || item.section === 'performance' ">&#x2022</span>{{content}}</div>
+              <div class="cap-content"><span class="bullet" v-if="item.section === 'why' || item.section === 'certs' || item.section === 'performance' ">&#x2022</span>{{content}}</div>
             </div>
           </div>
         </div>
       </div>
       <div class="slide three">
         <div class="container__testimonials">
-          <div class="header">Testimonials</div>
+          <div class="cap-title">Testimonials</div>
           <p class="testimonial">"Caledonia Consulting did an outstanding job for me on website design and development. Everything was customized to my requirements, and the resulting site is appealing, highly intuitive, and user-friendly. I would recommend Caledonia to anyone seeking expert guidance in setting up their business website."</p>
           <p class="testimonial"> - Dean Pinkert Trade & Human Rights Consulting</p>
         </div>
@@ -125,7 +125,7 @@ onMounted(() => {
           <div class="cap-single">
             <div class="cap-title">{{codesAndCerts[0].title}}</div>
             <div :id="codesAndCerts[0].section" :class="codesAndCerts[0].section" v-for="content in codesAndCerts[0].content">
-              <div class="cap-content"><span>&#x2022</span>{{content}}</div>
+              <div class="cap-content"><span class="bullet">&#x2022</span>{{content}}</div>
             </div>
           </div>
           <div class="cap-single">
@@ -143,7 +143,14 @@ onMounted(() => {
       </div>
     </div>
   </div>
-  <div v-else>Mobile</div>
+  <div v-else class="container__landing--mobile">
+    <div class="container__content--container">
+      <div class="slide one">1</div>
+      <div class="slide one">2</div>
+      <div class="slide three">3</div>
+      <div class="slide four">4</div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -160,12 +167,11 @@ onMounted(() => {
   height: 100%;
   width: 100%;
   object-fit: cover;
-
 }
 
-.header {
-  display: flex;
-  justify-content: center;
+.bullet {
+  margin-right: 5px;
+  font-weight: 900;
 }
 
 .slide {
@@ -174,16 +180,22 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
 
+  .cap-title {
+    margin-top: 20px;
+  }
+
   &.two {
-    height: 30vh;
+    height: 100%;
   }
 
   &.three {
-    height: 25vh;
+    height: 100%;
+    min-height: 250px;
   }
 
   &.four {
-    height: 40vh;
+    height: 100%;
+    min-height: 250px;
   }
 
   .top {
@@ -239,7 +251,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     width: 65%;
-    margin: 25px auto 0;
+    margin: 0px auto 0;
     text-align: center;
 
     .arrowdown {
@@ -272,14 +284,7 @@ onMounted(() => {
   &.show {
     .container__capability {
 
-      /*
-        Line separating content after scroll
-      */
-
-      height: 50vh;
-
-      .cap-title {
-      }
+      min-height: 350px;
 
       .cap-single:nth-child(1) {
         opacity: 1;
@@ -341,12 +346,24 @@ onMounted(() => {
       width: 80%;
       margin: 0 auto;
     }
+
+    .cap-title {
+      color: white;
+    }
   }
 }
 
 .slide:nth-child(4) {
   background-color: #0065bd;
   color: white;
+
+  .cap-single {
+    margin-left: 6%;
+  }
+
+  .cap-title {
+    color: white;
+  }
 }
 
 .cap-single {
