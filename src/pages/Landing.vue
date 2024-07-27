@@ -145,8 +145,19 @@ onMounted(() => {
   </div>
   <div v-else class="container__landing--mobile">
     <div class="container__content--container">
-      <div class="slide one">1</div>
-      <div class="slide one">2</div>
+      <div class="slide one">
+        <div class="container__content--text">
+          <div class="company-title">
+            <span class="primary">CALEDONIA</span>
+            <span class="underline"></span>
+            <span class="secondary">CONSULTING LLC</span>
+          </div>
+          <div class="container__cta--desktop">
+            <span>Contact Us Icon</span>
+          </div>
+        </div>
+      </div>
+      <div class="slide two">2</div>
       <div class="slide three">3</div>
       <div class="slide four">4</div>
     </div>
@@ -379,5 +390,48 @@ onMounted(() => {
   font-size: 25px;
   color: #0065bd;
   text-align: center;
+}
+
+.container__landing--mobile {
+  .slide {
+    min-height: 80vh;
+
+    &.one {
+      width: 100vw;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      background: #0065bd;
+
+      .container__cta--desktop {
+        display: none;
+      }
+
+      .company-title {
+        font-family: "Nunito Sans", sans-serif;
+        font-weight: 700;
+        font-size: 40px;
+        color: #FFF;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        .primary {
+          font-size: 55px;
+        }
+
+        .underline {
+          height: 7px;
+          width: 100%;
+          background-color: white;
+          margin-bottom: 7px;
+        }
+
+        .secondary {
+          font-size: 30px;
+        }
+      }
+    }
+  }
 }
 </style>

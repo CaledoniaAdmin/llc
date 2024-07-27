@@ -30,7 +30,7 @@ const setPage = (e: Event) => {
         </div>
       </div>
     </div>
-    <div class="container__content--main">
+    <div class="container__content--app">
       <Transition>
         <Landing v-if="activePage === 'landing'" />
       </Transition>
@@ -102,7 +102,7 @@ const setPage = (e: Event) => {
 
 }
 
-.container__content--main {
+.container__content--app {
   color: black;
 
   /* All incoming content */
