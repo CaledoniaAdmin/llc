@@ -117,7 +117,7 @@ onMounted(() => {
         <div class="container__testimonials">
           <div class="cap-title">Testimonials</div>
           <p class="testimonial">"Caledonia Consulting did an outstanding job for me on website design and development. Everything was customized to my requirements, and the resulting site is appealing, highly intuitive, and user-friendly. I would recommend Caledonia to anyone seeking expert guidance in setting up their business website."</p>
-          <p class="testimonial"> - Dean Pinkert Trade & Human Rights Consulting</p>
+          <p class="testimonial"> - Pinkert Trade & Human Rights Consulting</p>
         </div>
       </div>
       <div class="slide four">
@@ -129,15 +129,10 @@ onMounted(() => {
             </div>
           </div>
           <div class="cap-single">
-            <form>
-              <label for="name">Name</label>
-              <input id="name" type="text"/>
-              <label for="email">Email</label>
-              <input id="email" type="email"/>
-              <label for="number">Phone</label>
-              <input id="number" type="text"/>
-              <button type="submit">Submit</button>
-            </form>
+            <div class="container__contact">
+              <div class="cap-title">Contact</div>
+              Email: <a href="mailto:caledoniaconsult@gmail.com" rel="noopener noreferrer">caledoniaconsult@gmail.com</a>
+            </div>
           </div>
         </div>
       </div>
@@ -172,6 +167,14 @@ onMounted(() => {
 
 .container__content--container {
   align-items: center;
+}
+
+.container__contact {
+  text-align: center;
+
+  a {
+    color: white;
+  }
 }
 
 .landing-image {

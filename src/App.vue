@@ -23,25 +23,16 @@ const setPage = (e: Event) => {
   <div class="container__overlay--desktop">
     <div class="container__navbar--desktop">
       <div class="container__navbar--container">
-        <div id="landing" class="img__logo" @click="setPage">LOGO</div>
+        <div id="landing" class="img__logo" @click="setPage"><img src="/logocc.png" height="50" width="50"></div>
         <div :class="`${width > 600 ? 'container__nav-items--desktop' : 'container__nav-items--mobile'}`">
-          <div id="capability" class="nav-item" @click="setPage">CAPABILITIES</div>
-          <div id="contact" class="nav-item" @click="setPage">CONTACT</div>
+          <div id="capability" class="nav-item"><a class="nav-item" href="https://drive.google.com/file/d/1kpeoBmJembZu2g6p0op4UOXPCTWvuRGn/view?usp=sharing" target="_blank">CAP STATEMENT</a></div>
+          <div id="contact" class="nav-item"><a class="nav-item" href="mailto:caledoniaconsult@gmail.com" rel="noopener noreferrer">CONTACT</a></div>
         </div>
       </div>
     </div>
     <div class="container__content--app">
       <Transition>
         <Landing v-if="activePage === 'landing'" />
-      </Transition>
-      <Transition>
-        <Capability v-if="activePage === 'capability'" />
-      </Transition>
-      <Transition>
-        <Contact v-if="activePage === 'contact'" />
-      </Transition>
-      <Transition>
-        <Ticker v-if="activePage === 'ticker'" />
       </Transition>
     </div>
   </div>
@@ -65,11 +56,14 @@ const setPage = (e: Event) => {
   background: white;
   color: black;
 
-
   > * {
     height: 50px;
     align-items: center;
 
+  }
+
+  a {
+    color: black;
   }
 }
 
@@ -91,6 +85,12 @@ const setPage = (e: Event) => {
     margin-left: 50%;
     width: 100vw;
     justify-content: space-evenly;
+
+    a {
+      color: unset;
+      font-size: inherit;
+      font-family: inherit;
+    }
   }
 
   .container__nav-items--mobile {
