@@ -41,7 +41,7 @@ const codesAndCerts = [
       'DUNS: 118981529',
       'CAGE: 9PHT2',
       'NAICS: 513210, 541511, 541512, 518210, 519290, 561410',
-      'Socio-economic certifications: HUBZone, MBE',
+      'SBA certifications: HUBZone, MBE',
       'PMI: CAPM (2018-present)'
     ]
   }
@@ -460,7 +460,7 @@ onMounted(() => {
       min-height: 100vh;
 
       .cap-single {
-        height: 20vh;
+        height: 100%;
         font-size: 18px;
         display: flex;
         flex-direction: column;
@@ -487,12 +487,14 @@ onMounted(() => {
         flex-direction: column;
         justify-content: space-evenly;
         height: 100vh;
+        text-align: center;
         * > {
         }
       }
 
       .cap-single {
         height: 100%;
+        width: 100%;
         padding-left: 7px;
       }
     }
