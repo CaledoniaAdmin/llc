@@ -102,6 +102,13 @@ const setPage = (e: Event) => {
 
 }
 
+@media screen and (max-width: 800px) {
+  .container__nav-items--desktop {
+    margin-left: 0 ;
+  }
+}
+
+
 .container__content--app {
   color: black;
 

@@ -5,9 +5,6 @@ import { useWindowSize } from '@vueuse/core'
 import {onMounted} from "vue";
 
 const { height, width } = useWindowSize()
-const redirectCall = () => {
-  return window.location.href = `http://localhost:5137/contact`
-}
 
 const capItems = [
   {
@@ -152,9 +149,30 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div class="slide two">2</div>
-      <div class="slide three">3</div>
-      <div class="slide four">4</div>
+      <div class="slide two">
+        <div v-for="(item) in capItems" class="cap-single">
+          <div class="cap-title">{{item.title}}</div>
+          <div :id="item.section" :class="item.section" v-for="content in item.content">
+            <div class="cap-content"><span class="bullet" v-if="item.section === 'why' || item.section === 'certs' || item.section === 'performance' ">&#x2022</span>{{content}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="slide four">
+        <div class="container__codes">
+          <div class="cap-single">
+            <div class="cap-title">{{codesAndCerts[0].title}}</div>
+            <div :id="codesAndCerts[0].section" :class="codesAndCerts[0].section" v-for="content in codesAndCerts[0].content">
+              <div class="cap-content"><span class="bullet">&#x2022</span>{{content}}</div>
+            </div>
+          </div>
+          <div class="cap-single">
+            <div class="container__contact">
+              <div class="cap-title">Contact</div>
+              Email: <a href="mailto:caledoniaconsult@gmail.com" rel="noopener noreferrer">caledoniaconsult@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -397,7 +415,7 @@ onMounted(() => {
 
 .container__landing--mobile {
   .slide {
-    min-height: 80vh;
+    min-height: 100vh;
 
     &.one {
       width: 100vw;
@@ -433,6 +451,49 @@ onMounted(() => {
         .secondary {
           font-size: 30px;
         }
+      }
+    }
+
+    &.two {
+      background-color: white;
+      color: blue;
+      min-height: 100vh;
+
+      .cap-single {
+        height: 20vh;
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        width: 98vw;
+        color: black !important;
+        opacity: 1;
+        margin: 0;
+        padding-left: 7px;
+      }
+      justify-content: space-evenly;
+
+      .cap-title {
+        font-weight: 700;
+        font-size: 25px;
+        color: #0065bd;
+        text-align: center;
+      }
+    }
+
+    &.four {
+
+      .container__codes {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 100vh;
+        * > {
+        }
+      }
+
+      .cap-single {
+        height: 100%;
+        padding-left: 7px;
       }
     }
   }
