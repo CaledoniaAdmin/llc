@@ -26,7 +26,7 @@ const setPage = (e: Event) => {
         <div id="landing" class="img__logo" @click="setPage"><img src="/logocc.png" height="50" width="50"></div>
         <div :class="`${width > 600 ? 'container__nav-items--desktop' : 'container__nav-items--mobile'}`">
           <div id="capability" class="nav-item"><a class="nav-item" href="https://drive.google.com/file/d/1kpeoBmJembZu2g6p0op4UOXPCTWvuRGn/view?usp=sharing" target="_blank">CAP STATEMENT</a></div>
-          <div id="contact" class="nav-item"><a class="nav-item" href="mailto:caledoniaconsult@gmail.com" rel="noopener noreferrer">CONTACT</a></div>
+          <div id="contact" class="nav-item"><a class="nav-item" href="mailto:hello@caledoniallc.io" rel="noopener noreferrer">CONTACT</a></div>
         </div>
       </div>
     </div>

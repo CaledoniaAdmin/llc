@@ -128,7 +128,7 @@ onMounted(() => {
           <div class="cap-single">
             <div class="container__contact">
               <div class="cap-title">Contact</div>
-              Email: <a href="mailto:caledoniaconsult@gmail.com" rel="noopener noreferrer">caledoniaconsult@gmail.com</a>
+              Email: <a href="mailto:hello@caledoniallc.io" rel="noopener noreferrer">hello@caledoniallc.io</a>
             </div>
           </div>
         </div>
@@ -168,7 +168,7 @@ onMounted(() => {
           <div class="cap-single">
             <div class="container__contact">
               <div class="cap-title">Contact</div>
-              Email: <a href="mailto:caledoniaconsult@gmail.com" rel="noopener noreferrer">caledoniaconsult@gmail.com</a>
+              Email: <a href="mailto:hello@caledoniallc.io" rel="noopener noreferrer">hello@caledoniallc.io</a>
             </div>
           </div>
         </div>
