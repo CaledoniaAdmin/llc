@@ -40,7 +40,7 @@ const codesAndCerts = [
     content: [
       'DUNS: 118981529',
       'CAGE: 9PHT2',
-      'NAICS: 513210, 541511, 541512, 518210, 519290, 561410','541430',
+      'NAICS: 513210, 541511, 541512, 518210, 519290, 561410, 541430',
       'SBA certifications: HUBZone, MBE',
       'PMI: CAPM (2018-present)'
     ]
